@@ -1,0 +1,25 @@
+[Unit]
+Description=Redis Health Check
+After=network.target
+
+[Service]
+Type=simple
+User=redis
+Group=redis
+EnvironmentFile=/etc/.redis-ch.conf
+ExecStart=/usr/bin/redis-checkhealth \
+  -host ${REDIS_HOST} \
+  -port ${REDIS_PORT} \
+  -password ${REDIS_AUTH}
+CapabilityBoundingSet=
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=full
+ProtectHome=true
+NoNewPrivileges=true
+RuntimeDirectory=redis
+RuntimeDirectoryMode=755
+LimitNOFILE=10032
+
+[Install]
+WantedBy=multi-user.target
