@@ -24,9 +24,9 @@ NOAUTH
 With AUTH
 
 ```bash
-./redis-checkhealth:7550 127.0.0.1:6379 xyz123
+./redis-checkhealth:7550 127.0.0.1:6379 abc123
 OR
-./redis-checkhealth:7550 127.0.0.1:6379 "xyz123"
+./redis-checkhealth:7550 127.0.0.1:6379 "abc123"
 ```
 
 
@@ -34,6 +34,7 @@ Install On Linux
 
 ```bash
 edit the redis-ch.conf, configure variable redis server, port and redis password
+
 ./install.sh
 
 ```
